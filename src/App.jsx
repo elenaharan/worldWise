@@ -5,7 +5,7 @@ import Pricing from './pages/Pricing';
 import PageNotFound from './pages/PageNotFound';
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
-import CitiesList from "./components/CitiesList";
+import CityList from "./components/CityList";
 import { useEffect, useState } from "react";
 
 const BASE_URL = "http://localhost:8080";
@@ -44,7 +44,7 @@ function App() {
           <Route
             index
             element={
-              <CitiesList
+              <CityList
                 cities={cities}
                 isLoading={isLoading}
               />
@@ -53,7 +53,7 @@ function App() {
           <Route
             path="cities"
             element={
-              <CitiesList
+              <CityList
                 cities={cities}
                 isLoading={isLoading}
               />
