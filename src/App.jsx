@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Product from "./pages/Product";
@@ -48,9 +48,9 @@ function App() {
           <Route
             index
             element={
-              <CityList
-                cities={cities}
-                isLoading={isLoading}
+              <Navigate
+                replace
+                to="cities"
               />
             }
           />
@@ -106,4 +106,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
