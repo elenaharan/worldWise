@@ -10,6 +10,8 @@ import BackButton from "./ButtonBack";
 import Message from "./Message";
 import Spinner from "./Spinner";
 import useUrlPosition from "../hooks/useUrlPosition";
+import { useCities } from "../contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -30,6 +32,8 @@ function Form() {
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [emoji, setEmoji] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
+  const { createCity, isLoading } = useCities();
+  const navigate = useNavigate();
 
   useEffect(
     function () {
@@ -48,7 +52,7 @@ function Form() {
               "It doesn't seem to be a city. Please click somewhere else 🙂"
             );
           setCityName(data.city || data.locality || "");
-          setCountry(data.country);
+          setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
         } catch (error) {
           setGeocodingError(error.message);
@@ -61,7 +65,7 @@ function Form() {
     [lat, lng]
   );
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (!cityName || !date) return;
@@ -74,6 +78,9 @@ function Form() {
       notes,
       position: { lat, lng },
     };
+
+    await createCity(newCity);
+    navigate("/app/cities");
   }
 
   if (!lat && !lng)
@@ -83,7 +90,7 @@ function Form() {
 
   return (
     <form
-      className={styles.form}
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
       onSubmit={handleSubmit}
     >
       <div className={styles.row}>
