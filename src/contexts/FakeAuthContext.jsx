@@ -4,7 +4,7 @@ const AuthContext = createContext();
 
 const initialState = {
   user: null,
-  isAuthenticated: true,
+  isAuthenticated: false,
 };
 
 function reducer(state, action) {
@@ -35,12 +35,13 @@ function AuthProvider({ children }) {
     if (email === FAKE_USER.email && password === FAKE_USER.password)
       dispatch({ type: "login", payload: FAKE_USER });
   }
+
   function logout() {
     dispatch({ type: "logout" });
   }
 
   return (
-    <AuthContext.Provider value={(user, isAuthenticated, login, logout)}>
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
