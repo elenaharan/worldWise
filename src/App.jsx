@@ -11,16 +11,6 @@ import City from "./components/City";
 import Form from "./components/Form";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 
-// import Product from "./pages/Product";
-// import Homepage from "./pages/Homepage";
-// import Pricing from "./pages/Pricing";
-// import PageNotFound from "./pages/PageNotFound";
-// import AppLayout from "./pages/AppLayout";
-// import Login from "./pages/Login";
-
-// dist/assets/index-167b7165.css   29.91 kB │ gzip:   5.07 kB
-// dist/assets/index-c19f988b.js   515.26 kB │ gzip: 148.46 kB
-
 const Homepage = lazy(() => import("./pages/Homepage"));
 const Product = lazy(() => import("./pages/Product"));
 const Pricing = lazy(() => import("./pages/Pricing"));

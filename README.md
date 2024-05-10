@@ -1,10 +1,17 @@
-# React + Vite
+# WorldWise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an SPA built with Vite and React routing. It allows users to mark on the map and add cities that they visited, as well as leaving some notes about their trips. 
 
-Currently, two official plugins are available:
+![demo](./public/demo.gif)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## To run the project:
 
-Project uses React routing. It is a SPA built with Vite
+At the root of the project run
+
+``npm run server`` (to fire up a fake server)
+``npm run dev`` (to start application)
+
+
+
+
+
